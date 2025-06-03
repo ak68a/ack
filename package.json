@@ -24,6 +24,7 @@
     "demo:e2e": "pnpm --filter ./demos/e2e start",
     "demo:identity": "pnpm --filter ./demos/identity start",
     "demo:payments": "pnpm --filter ./demos/payments start",
+    "demo:payments-v2": "pnpm --filter @demos/payments-v2 start",
     "dev:docs": "pnpm --filter ./docs docs",
     "dev:examples": "turbo dev",
     "fix": "turbo fix",

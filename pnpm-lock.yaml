@@ -174,6 +174,58 @@ importers:
         specifier: ^3.1.4
         version: 3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.19.4)(yaml@2.8.0)
 
+  demos/payments-v2:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.14.2
+        version: 1.14.2(hono@4.7.10)
+      '@repo/api-utils':
+        specifier: workspace:*
+        version: link:../../tools/api-utils
+      '@repo/cli-tools':
+        specifier: workspace:*
+        version: link:../../tools/cli-tools
+      '@repo/payment-service-core':
+        specifier: workspace:*
+        version: link:../../packages/payment-service-core
+      agentcommercekit:
+        specifier: workspace:*
+        version: link:../../packages/agentcommercekit
+      hono:
+        specifier: ^4.7.10
+        version: 4.7.10
+      valibot:
+        specifier: ^1.1.0
+        version: 1.1.0(typescript@5.8.3)
+      viem:
+        specifier: ^2.29.4
+        version: 2.29.4(typescript@5.8.3)(zod@3.25.4)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tools/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tools/typescript-config
+      '@types/node':
+        specifier: ^22
+        version: 22.15.19
+      dotenv-cli:
+        specifier: ^8.0.0
+        version: 8.0.0
+      eslint:
+        specifier: ^9.27.0
+        version: 9.27.0(jiti@2.4.2)
+      tsx:
+        specifier: ^4.19.4
+        version: 4.19.4
+      typescript:
+        specifier: ^5
+        version: 5.8.3
+      vitest:
+        specifier: ^3.1.4
+        version: 3.1.4(@types/debug@4.1.12)(@types/node@22.15.19)(jiti@2.4.2)(lightningcss@1.29.3)(tsx@4.19.4)(yaml@2.8.0)
+
   docs:
     devDependencies:
       mintlify:
@@ -589,6 +641,9 @@ importers:
         specifier: workspace:*
         version: link:../agentcommercekit
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tools/eslint-config
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../tools/typescript-config
