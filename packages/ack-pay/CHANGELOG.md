@@ -1,5 +1,12 @@
 # @agentcommercekit/ack-pay
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`5b1c8b1`](https://github.com/agentcommercekit/ack/commit/5b1c8b1b8105e781f977379f019f96efbcab3e27)]:
+  - @agentcommercekit/vc@0.2.1
+
 ## 0.2.0
 
 ### Patch Changes

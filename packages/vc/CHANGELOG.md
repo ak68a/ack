@@ -1,5 +1,11 @@
 # @agentcommercekit/vc
 
+## 0.2.1
+
+### Patch Changes
+
+- [#4](https://github.com/agentcommercekit/ack/pull/4) [`5b1c8b1`](https://github.com/agentcommercekit/ack/commit/5b1c8b1b8105e781f977379f019f96efbcab3e27) Thanks [@domleboss97](https://github.com/domleboss97)! - Define explicit W3CCredential type to resolve TS compiler issues with inferred return types
+
 ## 0.2.0
 
 ### Patch Changes
