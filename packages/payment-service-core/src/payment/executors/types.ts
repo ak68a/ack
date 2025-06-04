@@ -1,3 +1,5 @@
+import type { PaymentRequest } from "../protocol/types"
+
 /**
  * Configuration options for payment executors
  */
@@ -43,4 +45,42 @@ export interface PaymentMethodInfo {
   };
   /** Estimated settlement time in milliseconds */
   settlementTime: number;
+}
+
+export interface PaymentExecutionRequest {
+  paymentOptionId: string
+  paymentToken: string
+  metadata?: Record<string, unknown>
+}
+
+export interface PaymentExecutionResult {
+  success: boolean
+  error?: Error
+  transactionId?: string
+  paymentDetails?: {
+    request: PaymentRequest
+    option: PaymentRequest["paymentOptions"][number]
+  }
+  metadata?: Record<string, unknown>
+}
+
+export interface PaymentExecutorConfig {
+  method: string
+  networks: string[]
+  currencies: string[]
+  capabilities: {
+    refunds: boolean
+    partialRefunds: boolean
+    disputes: boolean
+    recurring: boolean
+  }
+  options?: Record<string, unknown>
+}
+
+export interface PaymentExecutorMetrics {
+  totalProcessed: number
+  successCount: number
+  failureCount: number
+  averageProcessingTime: number
+  lastUpdated: Date
 }

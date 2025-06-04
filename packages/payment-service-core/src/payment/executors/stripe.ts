@@ -1,19 +1,27 @@
 import { getDidResolver, verifyPaymentToken } from "agentcommercekit";
 import { BasePaymentExecutor } from "./base";
-import { PaymentExecutionRequest, PaymentExecutionResult } from "../types";
 import { PaymentErrorCode, createPaymentError } from "../errors";
-import type { ExecutorConfig } from "./types";
+import type { ExecutorConfig, PaymentExecutionRequest, PaymentExecutionResult, PaymentExecutorConfig } from "./types";
 
 /**
  * A Stripe payment executor implementation.
  * Handles payment execution through the Stripe payment network.
  */
 export class StripeExecutor extends BasePaymentExecutor {
-  private config: ExecutorConfig;
-
   constructor(config: ExecutorConfig = {}) {
-    super();
-    this.config = config;
+    const baseConfig: PaymentExecutorConfig = {
+      method: "stripe",
+      networks: ["stripe"],
+      currencies: ["USD"],
+      capabilities: {
+        refunds: true,
+        partialRefunds: true,
+        disputes: true,
+        recurring: true
+      },
+      options: config
+    };
+    super(baseConfig);
   }
 
   getPaymentMethod(): string {
@@ -56,8 +64,8 @@ export class StripeExecutor extends BasePaymentExecutor {
         success: true,
         transactionId: "stripe_" + Math.random().toString(36).substring(7),
         paymentDetails: {
-          paymentRequest: paymentRequest,
-          paymentOption: paymentOption
+          request: paymentRequest,
+          option: paymentOption
         }
       };
     } catch (err) {
@@ -75,12 +83,23 @@ export class StripeExecutor extends BasePaymentExecutor {
   /**
    * Additional validation specific to Stripe payments
    */
-  protected async validateRequest(request: PaymentExecutionRequest): Promise<void> {
-    // First run the base validation
-    await super.validateRequest(request);
+  async validateRequest(request: PaymentExecutionRequest): Promise<void> {
+    if (!request.paymentToken) {
+      throw createPaymentError(
+        PaymentErrorCode.INVALID_PAYMENT_TOKEN,
+        "Payment token is required"
+      );
+    }
 
-    // Then add Stripe-specific validation
-    if (!this.config.apiKey) {
+    if (!request.paymentOptionId) {
+      throw createPaymentError(
+        PaymentErrorCode.INVALID_PAYMENT_OPTION,
+        "Payment option ID is required"
+      );
+    }
+
+    const options = this.config.options as ExecutorConfig;
+    if (!options.apiKey) {
       throw createPaymentError(
         PaymentErrorCode.CONFIGURATION_ERROR,
         "Stripe API key is required"

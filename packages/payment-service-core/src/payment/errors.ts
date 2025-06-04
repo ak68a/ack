@@ -3,9 +3,9 @@
  */
 export class PaymentError extends Error {
   constructor(
+    public code: PaymentErrorCode,
     message: string,
-    public readonly code: string,
-    public readonly details?: unknown
+    public cause?: unknown
   ) {
     super(message);
     this.name = 'PaymentError';
@@ -31,7 +31,14 @@ export enum PaymentErrorCode {
   SERVICE_UNAVAILABLE = 'SERVICE_UNAVAILABLE',
 
   // Configuration errors
-  CONFIGURATION_ERROR = 'CONFIGURATION_ERROR'
+  CONFIGURATION_ERROR = 'CONFIGURATION_ERROR',
+
+  // New errors
+  PAYMENT_NOT_FOUND = 'PAYMENT_NOT_FOUND',
+  PAYMENT_RAIL_UNAVAILABLE = 'PAYMENT_RAIL_UNAVAILABLE',
+  PAYMENT_VALIDATION_FAILED = 'PAYMENT_VALIDATION_FAILED',
+  PAYMENT_EXECUTION_FAILED = 'PAYMENT_EXECUTION_FAILED',
+  PAYMENT_REPOSITORY_ERROR = 'PAYMENT_REPOSITORY_ERROR'
 }
 
 /**
@@ -40,7 +47,7 @@ export enum PaymentErrorCode {
 export function createPaymentError(
   code: PaymentErrorCode,
   message: string,
-  details?: unknown
+  cause?: unknown
 ): PaymentError {
-  return new PaymentError(message, code, details);
+  return new PaymentError(code, message, cause);
 }
