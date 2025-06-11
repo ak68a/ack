@@ -1,5 +1,11 @@
 # @agentcommercekit/vc
 
+## 0.3.0
+
+### Minor Changes
+
+- [#6](https://github.com/agentcommercekit/ack/pull/6) [`606f73c`](https://github.com/agentcommercekit/ack/commit/606f73cf3d3271559aed8d21a2a1c228789a1a9f) Thanks [@domleboss97](https://github.com/domleboss97)! - add verifiable presentation creation and signing
+
 ## 0.2.1
 
 ### Patch Changes
