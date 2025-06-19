@@ -1,5 +1,12 @@
 # @agentcommercekit/vc
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`66741d6`](https://github.com/agentcommercekit/ack/commit/66741d64221a0ca382f9279fbe1babf4a92b52d4)]:
+  - @agentcommercekit/did@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes

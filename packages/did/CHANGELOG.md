@@ -1,5 +1,11 @@
 # @agentcommercekit/did
 
+## 0.3.1
+
+### Patch Changes
+
+- [#9](https://github.com/agentcommercekit/ack/pull/9) [`66741d6`](https://github.com/agentcommercekit/ack/commit/66741d64221a0ca382f9279fbe1babf4a92b52d4) Thanks [@edspencer](https://github.com/edspencer)! - Added Service type export
+
 ## 0.2.0
 
 ### Minor Changes
