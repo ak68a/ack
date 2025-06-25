@@ -1,0 +1,45 @@
+{
+  "name": "@demos/identity-a2a",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/agentcommercekit/ack#readme",
+  "bugs": "https://github.com/agentcommercekit/ack/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agentcommercekit/ack.git",
+    "directory": "demos/identity-a2a"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Catena Labs",
+    "url": "https://catenalabs.com"
+  },
+  "type": "module",
+  "scripts": {
+    "check:types": "tsc --noEmit",
+    "clean": "git clean -fdX .turbo",
+    "demo": "tsx ./src/run-demo.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@repo/cli-tools": "workspace:*",
+    "a2a-js": "^0.2.0",
+    "agentcommercekit": "workspace:*",
+    "jose": "^6.0.11",
+    "safe-stable-stringify": "^2.5.0",
+    "uuid": "^11.1.0",
+    "valibot": "^1.1.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22",
+    "eslint": "^9.27.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5",
+    "vitest": "^3.1.4"
+  }
+}
