@@ -1,5 +1,16 @@
 # agentcommercekit
 
+## 0.5.0
+
+### Minor Changes
+
+- [#12](https://github.com/agentcommercekit/ack/pull/12) [`1e0cb72`](https://github.com/agentcommercekit/ack/commit/1e0cb7292dbde63ea3bb5be55161ddfe4db23874) Thanks [@domleboss97](https://github.com/domleboss97)! - Update ack-a2a handshake to include ownership VC exchange
+
+### Patch Changes
+
+- Updated dependencies [[`1e0cb72`](https://github.com/agentcommercekit/ack/commit/1e0cb7292dbde63ea3bb5be55161ddfe4db23874)]:
+  - @agentcommercekit/ack-id@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
