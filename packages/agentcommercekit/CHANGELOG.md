@@ -1,5 +1,19 @@
 # agentcommercekit
 
+## 0.4.0
+
+### Minor Changes
+
+- [#11](https://github.com/agentcommercekit/ack/pull/11) [`70b3fc9`](https://github.com/agentcommercekit/ack/commit/70b3fc913b72a3d1322e88db675845409217039b) Thanks [@venables](https://github.com/venables)! - Add A2A message support to ACK-ID packages
+
+### Patch Changes
+
+- Updated dependencies [[`70b3fc9`](https://github.com/agentcommercekit/ack/commit/70b3fc913b72a3d1322e88db675845409217039b)]:
+  - @agentcommercekit/ack-pay@0.4.0
+  - @agentcommercekit/ack-id@0.4.0
+  - @agentcommercekit/jwt@0.4.0
+  - @agentcommercekit/vc@0.4.0
+
 ## 0.3.1
 
 ### Patch Changes
