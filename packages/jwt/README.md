@@ -53,8 +53,11 @@ console.log(parsed.payload)
 The package provides schemas for validating JWT strings with Zod and Valibot:
 
 ```ts
-// Zod
-import { jwtStringSchema } from "@agentcommercekit/jwt/schemas/zod"
+// Zod v4
+import { jwtStringSchema } from "@agentcommercekit/jwt/schemas/zod/v4"
+
+// Zod v3
+import { jwtStringSchema } from "@agentcommercekit/jwt/schemas/zod/v3"
 
 // Valibot
 import { jwtStringSchema } from "@agentcommercekit/jwt/schemas/valibot"

@@ -21,8 +21,16 @@
       "default": "./dist/index.js"
     },
     "./schemas/zod": {
-      "types": "./dist/schemas/zod.d.ts",
-      "default": "./dist/schemas/zod.js"
+      "types": "./dist/schemas/zod/v3.d.ts",
+      "default": "./dist/schemas/zod/v3.js"
+    },
+    "./schemas/zod/v3": {
+      "types": "./dist/schemas/zod/v3.d.ts",
+      "default": "./dist/schemas/zod/v3.js"
+    },
+    "./schemas/zod/v4": {
+      "types": "./dist/schemas/zod/v4.d.ts",
+      "default": "./dist/schemas/zod/v4.js"
     },
     "./schemas/valibot": {
       "types": "./dist/schemas/valibot.d.ts",
@@ -58,11 +66,11 @@
     "typescript": "^5",
     "valibot": "^1.1.0",
     "vitest": "^3.1.4",
-    "zod": "^3.25.4"
+    "zod": "^3.25.0"
   },
   "peerDependencies": {
     "valibot": "^1.0.0",
-    "zod": "^3.0.0"
+    "zod": "^3.25.0"
   },
   "peerDependenciesMeta": {
     "valibot": {

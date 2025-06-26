@@ -1,5 +1,5 @@
-import { z } from "zod"
-import { isJwtString } from "../jwt-string"
+import * as z from "zod/v4"
+import { isJwtString } from "../../jwt-string"
 
 export const jwtStringSchema = z
   .string()
