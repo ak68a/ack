@@ -1,5 +1,11 @@
 # @agentcommercekit/ack-id
 
+## 0.5.1
+
+### Patch Changes
+
+- [#13](https://github.com/agentcommercekit/ack/pull/13) [`2df90df`](https://github.com/agentcommercekit/ack/commit/2df90df181cde4921342e02dedaf81127a10c739) Thanks [@domleboss97](https://github.com/domleboss97)! - Fix createA2AHandshakePayload signature and loosen type on VC in a2a handshake
+
 ## 0.5.0
 
 ### Minor Changes
