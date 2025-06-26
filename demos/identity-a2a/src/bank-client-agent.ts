@@ -286,13 +286,15 @@ export class BankClientAgent extends Agent {
 
       const { nonce, message } = await createA2AHandshakeMessage(
         Role.User,
-        serverDid,
+        {
+          recipient: serverDid,
+          vc: this.vc
+        },
         {
           did: this.did,
           jwtSigner: this.jwtSigner,
           alg: this.keypair.algorithm,
-          expiresIn: 5 * 60,
-          vc: this.vc
+          expiresIn: 5 * 60
         }
       )
 

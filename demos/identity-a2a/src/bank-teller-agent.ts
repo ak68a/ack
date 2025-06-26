@@ -148,13 +148,16 @@ class BankTellerAgent extends Agent {
 
       const { message } = await createA2AHandshakeMessage(
         Role.Agent,
-        clientDid,
         {
+          recipient: clientDid,
           requestNonce: clientNonce,
+          vc: this.vc
+        },
+        {
           did: this.did,
           jwtSigner: this.jwtSigner,
           alg: this.keypair.algorithm,
-          vc: this.vc
+          expiresIn: 5 * 60
         }
       )
 

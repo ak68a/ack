@@ -7,7 +7,7 @@ import type {
   JwtSigner,
   JwtString
 } from "@agentcommercekit/jwt"
-import type { Verifiable, W3CCredential } from "@agentcommercekit/vc"
+import type { W3CCredential } from "@agentcommercekit/vc"
 import type { Message, Role } from "a2a-js"
 
 type SignMessageOptions = {
@@ -27,6 +27,7 @@ type A2AHandshakeMessage = SignedA2AMessage & {
   nonce: string
   replyNonce?: string
 }
+
 /**
  * Creates a signed A2A Message
  * @returns an object containing the signature, jti, and the signed message, with the signature added to the metadata
@@ -53,25 +54,26 @@ export async function createSignedA2AMessage(
   }
 }
 
-type A2AHandshakeOptions = SignMessageOptions & {
+type A2AHandshakeParams = {
+  /**
+   * The recipient of the message
+   */
+  recipient: DidUri
   /**
    * The verifiable credential to include in the message
    */
-  vc: Verifiable<W3CCredential>
+  vc: W3CCredential
   /**
-   * The nonce of the message we're replying to, if any
-   */
+-   * The nonce of the message we're replying to, if any
+-   */
   requestNonce?: string
 }
 
-export function createA2AHandshakePayload(
-  recipient: DidUri,
-  options: A2AHandshakeOptions
-) {
+export function createA2AHandshakePayload(params: A2AHandshakeParams) {
   const nonce = generateRandomNonce()
-  const nonces = options.requestNonce
+  const nonces = params.requestNonce
     ? {
-        nonce: options.requestNonce,
+        nonce: params.requestNonce,
         replyNonce: nonce
       }
     : {
@@ -79,9 +81,9 @@ export function createA2AHandshakePayload(
       }
 
   return {
-    aud: recipient,
+    aud: params.recipient,
     ...nonces,
-    vc: options.vc
+    vc: params.vc
   }
 }
 
@@ -109,12 +111,12 @@ export function createA2AHandshakeMessageFromJwt(
  */
 export async function createA2AHandshakeMessage(
   role: Role,
-  recipient: DidUri,
-  options: A2AHandshakeOptions
+  params: A2AHandshakeParams,
+  signOptions: SignMessageOptions
 ): Promise<A2AHandshakeMessage> {
-  const payload = createA2AHandshakePayload(recipient, options)
+  const payload = createA2AHandshakePayload(params)
 
-  const { jwt, jti } = await createMessageSignature(payload, options)
+  const { jwt, jti } = await createMessageSignature(payload, signOptions)
 
   const message = createA2AHandshakeMessageFromJwt(role, jwt)
 
