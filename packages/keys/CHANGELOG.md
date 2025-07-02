@@ -1,5 +1,15 @@
 # @agentcommercekit/keys
 
+## 0.6.0
+
+### Minor Changes
+
+- [#19](https://github.com/agentcommercekit/ack/pull/19) [`ad7b0a0`](https://github.com/agentcommercekit/ack/commit/ad7b0a0327c2cd0366a37f7ab96a53a456934fc3) Thanks [@venables](https://github.com/venables)! - Update interfaces to separate key curves from jwt signing algorithms
+
+- [#20](https://github.com/agentcommercekit/ack/pull/20) [`829f5e7`](https://github.com/agentcommercekit/ack/commit/829f5e7c4a546f9ec0cf61d0cd19c99d62fd4eb9) Thanks [@venables](https://github.com/venables)! - Improve JWK encoding/decoding and public key methods
+
+- [#15](https://github.com/agentcommercekit/ack/pull/15) [`2ce8d11`](https://github.com/agentcommercekit/ack/commit/2ce8d11998251a7c274239e3dfa85d2afc99576f) Thanks [@venables](https://github.com/venables)! - Add support for ES256 keys in JWTs
+
 ## 0.2.0
 
 ### Minor Changes
