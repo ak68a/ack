@@ -1,5 +1,11 @@
 # @agentcommercekit/keys
 
+## 0.6.1
+
+### Patch Changes
+
+- [#21](https://github.com/agentcommercekit/ack/pull/21) [`36da071`](https://github.com/agentcommercekit/ack/commit/36da0717b65d7f882c7a16cd4e6a1667d8dfccb6) Thanks [@venables](https://github.com/venables)! - Update private key generation to by sync
+
 ## 0.6.0
 
 ### Minor Changes
