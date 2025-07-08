@@ -1,0 +1,42 @@
+{
+  "name": "@repo/payment-service-api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.8.2",
+    "@repo/api-utils": "workspace:*",
+    "@repo/cli-tools": "workspace:*",
+    "@repo/payment-service-core": "workspace:*",
+    "agentcommercekit": "workspace:*",
+    "hono": "^4.1.0",
+    "jose": "^5.2.2",
+    "viem": "^2.7.9",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20",
+    "typescript": "^5",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "turbo": "^1.12.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "custom"
+    ]
+  },
+  "prettier": "@repo/prettier-config-custom"
+}
