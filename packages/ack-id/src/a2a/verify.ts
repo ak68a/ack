@@ -62,6 +62,8 @@ export async function verifyA2ASignedMessage(
   { did, counterparty, resolver = getDidResolver() }: VerifyA2AHandshakeOptions
 ): Promise<JwtVerified> {
   // Ensure the message is a valid A2A signed message
+  // We need to remove the auto-generated contextId from the message
+  // as it is not part of the client-signed message payload
   const {
     metadata,
     contextId: _contextId,

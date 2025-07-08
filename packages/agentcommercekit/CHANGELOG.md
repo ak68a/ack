@@ -1,5 +1,16 @@
 # agentcommercekit
 
+## 0.7.0
+
+### Minor Changes
+
+- Use the official @a2a-js/sdk
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @agentcommercekit/ack-id@0.7.0
+
 ## 0.6.1
 
 ### Patch Changes
