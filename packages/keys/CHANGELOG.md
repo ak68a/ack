@@ -1,5 +1,11 @@
 # @agentcommercekit/keys
 
+## 0.7.1
+
+### Patch Changes
+
+- [#23](https://github.com/agentcommercekit/ack/pull/23) [`fceb090`](https://github.com/agentcommercekit/ack/commit/fceb09050306374157b739f50f098a07b4cefaad) Thanks [@venables](https://github.com/venables)! - Add isValidPublicKey for each of the supported curves
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @agentcommercekit/did
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [[`fceb090`](https://github.com/agentcommercekit/ack/commit/fceb09050306374157b739f50f098a07b4cefaad)]:
+  - @agentcommercekit/keys@0.7.1
+
 ## 0.6.1
 
 ### Patch Changes
