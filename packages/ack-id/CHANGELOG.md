@@ -1,5 +1,12 @@
 # @agentcommercekit/ack-id
 
+## 0.8.0
+
+### Patch Changes
+
+- Updated dependencies [[`f21bf4d`](https://github.com/agentcommercekit/ack/commit/f21bf4d399f673559a342c4b0bf9a6e088154408)]:
+  - @agentcommercekit/vc@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

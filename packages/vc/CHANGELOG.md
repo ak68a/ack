@@ -1,5 +1,11 @@
 # @agentcommercekit/vc
 
+## 0.8.0
+
+### Minor Changes
+
+- [#24](https://github.com/agentcommercekit/ack/pull/24) [`f21bf4d`](https://github.com/agentcommercekit/ack/commit/f21bf4d399f673559a342c4b0bf9a6e088154408) Thanks [@edspencer](https://github.com/edspencer)! - Replaced StatusList2021 with BitstringStatusList for VC revocation
+
 ## 0.7.1
 
 ### Patch Changes
