@@ -1,5 +1,19 @@
 # @agentcommercekit/ack-id
 
+## 0.8.1
+
+### Patch Changes
+
+- [#27](https://github.com/agentcommercekit/ack/pull/27) [`8ea5846`](https://github.com/agentcommercekit/ack/commit/8ea5846b931bad5cd94ad1302ddf00ed51c285c9) Thanks [@venables](https://github.com/venables)! - Add did:pkh support for more chains, including solana
+
+- [#27](https://github.com/agentcommercekit/ack/pull/27) [`8ea5846`](https://github.com/agentcommercekit/ack/commit/8ea5846b931bad5cd94ad1302ddf00ed51c285c9) Thanks [@venables](https://github.com/venables)! - Add schemas for CAIP-2, CAIP-10, CAIP-19 which are used by did:pkh
+
+- Updated dependencies [[`8ea5846`](https://github.com/agentcommercekit/ack/commit/8ea5846b931bad5cd94ad1302ddf00ed51c285c9), [`8ea5846`](https://github.com/agentcommercekit/ack/commit/8ea5846b931bad5cd94ad1302ddf00ed51c285c9)]:
+  - @agentcommercekit/keys@0.8.1
+  - @agentcommercekit/did@0.8.1
+  - @agentcommercekit/jwt@0.8.1
+  - @agentcommercekit/vc@0.8.1
+
 ## 0.8.0
 
 ### Patch Changes
