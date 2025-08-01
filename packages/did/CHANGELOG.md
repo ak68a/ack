@@ -1,5 +1,11 @@
 # @agentcommercekit/did
 
+## 0.8.2
+
+### Patch Changes
+
+- [#28](https://github.com/agentcommercekit/ack/pull/28) [`3d1f83f`](https://github.com/agentcommercekit/ack/commit/3d1f83faafaac388d6b977a1929180d8d20fa751) Thanks [@domleboss97](https://github.com/domleboss97)! - Scope return type of did pkh creation; improve did uri typing
+
 ## 0.8.1
 
 ### Patch Changes
