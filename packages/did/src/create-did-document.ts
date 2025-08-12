@@ -35,9 +35,11 @@ interface CreateVerificationMethodOptions {
  */
 export function createVerificationMethod({
   did,
-  publicKey
+  publicKey: publicKeyWithEncoding
 }: CreateVerificationMethodOptions): VerificationMethod {
-  const { encoding, value } = convertLegacyPublicKeyToMultibase(publicKey)
+  const { encoding, value: publicKey } = convertLegacyPublicKeyToMultibase(
+    publicKeyWithEncoding
+  )
 
   const verificationMethod: VerificationMethod = {
     id: `${did}#${encoding}-1`,
@@ -49,11 +51,11 @@ export function createVerificationMethod({
   switch (encoding) {
     case "jwk":
       verificationMethod.type = "JsonWebKey2020"
-      verificationMethod.publicKeyJwk = value
+      verificationMethod.publicKeyJwk = publicKey
       break
     case "multibase":
       verificationMethod.type = "Multikey"
-      verificationMethod.publicKeyMultibase = value
+      verificationMethod.publicKeyMultibase = publicKey
       break
   }
 
