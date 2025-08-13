@@ -1,5 +1,11 @@
 # @agentcommercekit/vc
 
+## 0.9.1
+
+### Patch Changes
+
+- [#31](https://github.com/agentcommercekit/ack/pull/31) [`a5d7c82`](https://github.com/agentcommercekit/ack/commit/a5d7c822397eb1ab71c1cad0c770457ec62810bb) Thanks [@edspencer](https://github.com/edspencer)! - Exported createPresentation from VC package
+
 ## 0.9.0
 
 ### Minor Changes
