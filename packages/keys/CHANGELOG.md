@@ -1,5 +1,11 @@
 # @agentcommercekit/keys
 
+## 0.9.0
+
+### Patch Changes
+
+- [#29](https://github.com/agentcommercekit/ack/pull/29) [`05d7c03`](https://github.com/agentcommercekit/ack/commit/05d7c033ea150b840429c112f9c41e2c0c89ac78) Thanks [@venables](https://github.com/venables)! - Improve JWK methods, add did:jwks support
+
 ## 0.8.1
 
 ### Patch Changes

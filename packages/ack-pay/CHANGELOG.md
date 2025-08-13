@@ -1,5 +1,19 @@
 # @agentcommercekit/ack-pay
 
+## 0.9.0
+
+### Minor Changes
+
+- [#30](https://github.com/agentcommercekit/ack/pull/30) [`b38740a`](https://github.com/agentcommercekit/ack/commit/b38740a0b9faad5b7a8405a7a4b5dfbde40c3818) Thanks [@domleboss97](https://github.com/domleboss97)! - Update credential signing to return only jwt; add domain and challenge to verifiable presentation signing.
+
+### Patch Changes
+
+- Updated dependencies [[`b38740a`](https://github.com/agentcommercekit/ack/commit/b38740a0b9faad5b7a8405a7a4b5dfbde40c3818), [`05d7c03`](https://github.com/agentcommercekit/ack/commit/05d7c033ea150b840429c112f9c41e2c0c89ac78)]:
+  - @agentcommercekit/vc@0.9.0
+  - @agentcommercekit/keys@0.9.0
+  - @agentcommercekit/did@0.9.0
+  - @agentcommercekit/jwt@0.9.0
+
 ## 0.8.2
 
 ### Patch Changes

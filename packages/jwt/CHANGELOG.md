@@ -1,5 +1,12 @@
 # @agentcommercekit/jwt
 
+## 0.9.0
+
+### Patch Changes
+
+- Updated dependencies [[`05d7c03`](https://github.com/agentcommercekit/ack/commit/05d7c033ea150b840429c112f9c41e2c0c89ac78)]:
+  - @agentcommercekit/keys@0.9.0
+
 ## 0.8.1
 
 ### Patch Changes
