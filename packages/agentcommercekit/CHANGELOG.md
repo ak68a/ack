@@ -1,5 +1,14 @@
 # agentcommercekit
 
+## 0.9.2
+
+### Patch Changes
+
+- [#32](https://github.com/agentcommercekit/ack/pull/32) [`99a0eda`](https://github.com/agentcommercekit/ack/commit/99a0eda9f7cebd3210c3169ac07eda9972f9e97b) Thanks [@domleboss97](https://github.com/domleboss97)! - Allow providing string value for payment option amount.
+
+- Updated dependencies [[`99a0eda`](https://github.com/agentcommercekit/ack/commit/99a0eda9f7cebd3210c3169ac07eda9972f9e97b)]:
+  - @agentcommercekit/ack-pay@0.9.2
+
 ## 0.9.1
 
 ### Patch Changes
