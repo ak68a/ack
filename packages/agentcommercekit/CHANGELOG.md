@@ -1,5 +1,19 @@
 # agentcommercekit
 
+## 0.10.0
+
+### Minor Changes
+
+- [#33](https://github.com/agentcommercekit/ack/pull/33) [`27e3ffb`](https://github.com/agentcommercekit/ack/commit/27e3ffb0c3dc747c80978e6665e30db9e52fdc97) Thanks [@venables](https://github.com/venables)!
+  - Deprecate `createPaymentRequestBody` in favor of `createSignedPaymentRequest`
+  - Rename `paymentToken` to `paymentRequestToken` in payment requests and receipts
+  - Remove `createPaymentRequestResponse`, which only built a `Response` object in a demo
+
+### Patch Changes
+
+- Updated dependencies [[`27e3ffb`](https://github.com/agentcommercekit/ack/commit/27e3ffb0c3dc747c80978e6665e30db9e52fdc97)]:
+  - @agentcommercekit/ack-pay@0.10.0
+
 ## 0.9.2
 
 ### Patch Changes
