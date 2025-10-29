@@ -1,5 +1,8 @@
 import { vValidator } from "@hono/valibot-validator"
-import { apiSuccessResponse } from "@repo/api-utils/api-response"
+import {
+  apiSuccessResponse,
+  type ApiResponse,
+} from "@repo/api-utils/api-response"
 import {
   createDidWebUri,
   getControllerClaimVerifier,
@@ -7,27 +10,25 @@ import {
   getReceiptClaimVerifier,
   isJwtString,
   parseJwtCredential,
-  verifyParsedCredential
+  verifyParsedCredential,
 } from "agentcommercekit"
 import {
   credentialSchema,
-  jwtStringSchema
+  jwtStringSchema,
 } from "agentcommercekit/schemas/valibot"
-import { Hono } from "hono"
+import { Hono, type Env } from "hono"
 import { ValiError } from "valibot"
 import * as v from "valibot"
-import type { ApiResponse } from "@repo/api-utils/api-response"
-import type { Env } from "hono"
 
 const app = new Hono<Env>()
 
 // Treat the local `issuer` API as trusted.
 const trustedIssuers: string[] = [
-  createDidWebUri(new URL("http://localhost:3456"))
+  createDidWebUri(new URL("http://localhost:3456")),
 ]
 
 const bodySchema = v.object({
-  credential: v.union([credentialSchema, jwtStringSchema])
+  credential: v.union([credentialSchema, jwtStringSchema]),
 })
 
 app.post(
@@ -48,11 +49,11 @@ app.post(
     await verifyParsedCredential(credential, {
       trustedIssuers,
       resolver,
-      verifiers: [getControllerClaimVerifier(), getReceiptClaimVerifier()]
+      verifiers: [getControllerClaimVerifier(), getReceiptClaimVerifier()],
     })
 
     return c.json(apiSuccessResponse(null))
-  }
+  },
 )
 
 export default app

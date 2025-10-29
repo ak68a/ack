@@ -1,7 +1,6 @@
 import { waitForEnter } from "@repo/cli-tools"
-import { createPublicClient, erc20Abi, http } from "viem"
+import { createPublicClient, erc20Abi, http, type Chain } from "viem"
 import { formatUnits } from "viem/utils"
-import type { Chain } from "viem"
 
 /**
  * Ensure the client wallet has a non-zero balance of USDC and ETH
@@ -9,7 +8,7 @@ import type { Chain } from "viem"
 export async function ensureNonZeroBalances(
   chain: Chain,
   address: `0x${string}`,
-  usdcAddress: `0x${string}`
+  usdcAddress: `0x${string}`,
 ) {
   // 2. Make sure the client wallet has been funded
   let balanceUsdc = await getErc20Balance(chain, address, usdcAddress)
@@ -18,13 +17,13 @@ export async function ensureNonZeroBalances(
   while (balanceUsdc.value === BigInt(0)) {
     console.log(
       "We need to fund this address with testnet USDC and testnet ETH:",
-      address
+      address,
     )
 
     console.log(
       "You can get testnet tokens from the following faucets:",
       "ETH: https://docs.base.org/chain/network-faucets",
-      "USDC: https://faucet.circle.com/"
+      "USDC: https://faucet.circle.com/",
     )
     console.log("Once funded, press enter to check balance again")
     await waitForEnter()
@@ -46,27 +45,27 @@ export async function ensureNonZeroBalances(
 async function getEthBalance(chain: Chain, address: `0x${string}`) {
   const publicClient = createPublicClient({
     chain,
-    transport: http()
+    transport: http(),
   })
 
   const balance = await publicClient.getBalance({
-    address
+    address,
   })
 
   return {
     value: balance,
-    decimals: 18
+    decimals: 18,
   }
 }
 
 async function getErc20Balance(
   chain: Chain,
   address: `0x${string}`,
-  contractAddress: `0x${string}`
+  contractAddress: `0x${string}`,
 ) {
   const publicClient = createPublicClient({
     chain,
-    transport: http()
+    transport: http(),
   })
 
   // eslint-disable-next-line @cspell/spellchecker
@@ -76,14 +75,14 @@ async function getErc20Balance(
         address: contractAddress,
         abi: erc20Abi,
         functionName: "balanceOf",
-        args: [address]
+        args: [address],
       },
       {
         address: contractAddress,
         abi: erc20Abi,
-        functionName: "decimals"
-      }
-    ]
+        functionName: "decimals",
+      },
+    ],
   })
 
   if (balance.status !== "success" || decimals.status !== "success") {
@@ -92,6 +91,6 @@ async function getErc20Balance(
 
   return {
     value: balance.result,
-    decimals: decimals.result
+    decimals: decimals.result,
   }
 }
