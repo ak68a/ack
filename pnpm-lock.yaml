@@ -87,6 +87,28 @@ importers:
         specifier: 4.0.18
         version: 4.0.18(@opentelemetry/api@1.9.0)(@types/node@24.9.2)(jiti@2.6.1)(tsx@4.21.0)(yaml@2.8.1)
 
+  demos/delegation-poc:
+    dependencies:
+      '@hono/node-server':
+        specifier: 'catalog:'
+        version: 1.19.9(hono@4.12.2)
+      '@repo/cli-tools':
+        specifier: workspace:*
+        version: link:../../tools/cli-tools
+      agentcommercekit:
+        specifier: workspace:*
+        version: link:../../packages/agentcommercekit
+      hono:
+        specifier: 'catalog:'
+        version: 4.12.2
+      viem:
+        specifier: 'catalog:'
+        version: 2.46.3(typescript@5.9.3)(zod@3.25.76)
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tools/typescript-config
+
   demos/e2e:
     dependencies:
       '@repo/cli-tools':

@@ -1,0 +1,25 @@
+{
+  "name": "@demos/delegation-poc",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "check:types": "tsc --noEmit",
+    "clean": "git clean -fdX .turbo",
+    "demo": "tsx --env-file=.env ./src/index.ts",
+    "demo:mock": "tsx ./src/index.ts",
+    "setup": "tsx --env-file=.env ./src/setup-testnet.ts",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@hono/node-server": "catalog:",
+    "@repo/cli-tools": "workspace:*",
+    "agentcommercekit": "workspace:*",
+    "hono": "catalog:",
+    "viem": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
+  }
+}
