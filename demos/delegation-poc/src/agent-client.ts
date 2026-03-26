@@ -24,10 +24,12 @@ type AgentClientConfig = {
   delegation: DelegationClaim
   agentId: number
   serverUrl: string
+  skipPayment?: boolean
 }
 
 type PaymentResult = {
   success: boolean
+  status?: number
   challengeId?: string
   txHash?: string
   response?: Record<string, unknown>
@@ -36,7 +38,7 @@ type PaymentResult = {
 }
 
 export async function callPaidApi(config: AgentClientConfig): Promise<PaymentResult> {
-  const { privateKey, delegation, agentId, serverUrl } = config
+  const { privateKey, delegation, agentId, serverUrl, skipPayment } = config
 
   // Step 1: Call the API, expect 402
   const initialRes = await fetch(`${serverUrl}/api/data`)
@@ -70,7 +72,7 @@ export async function callPaidApi(config: AgentClientConfig): Promise<PaymentRes
 
   let txHash: Hex | undefined
 
-  if (process.env.TENDERLY_RPC_URL) {
+  if (process.env.TENDERLY_RPC_URL && !skipPayment) {
     const walletClient = createWalletClient({
       account,
       chain,
@@ -114,6 +116,7 @@ export async function callPaidApi(config: AgentClientConfig): Promise<PaymentRes
     const data = await paidRes.json()
     return {
       success: true,
+      status: paidRes.status,
       challengeId,
       txHash,
       response: data as Record<string, unknown>,
@@ -124,6 +127,7 @@ export async function callPaidApi(config: AgentClientConfig): Promise<PaymentRes
   const error = await paidRes.json()
   return {
     success: false,
+    status: paidRes.status,
     challengeId,
     txHash,
     error: (error as Record<string, string>).error ?? `Server returned ${paidRes.status}`,

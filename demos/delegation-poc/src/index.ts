@@ -155,17 +155,94 @@ ${colors.dim("ERC-8004 + AgentID + MPP integration demo")}
     log(`   FAILED: ${result.error}`)
   }
 
+  // --- Step 6: Negative cases ---
+  log(colors.bold("\n6. Negative cases — server rejects unauthorized agents\n"))
+
+  // 6a: Wrong action
+  log(colors.dim("   6a. Agent with wrong action (read instead of payment)..."))
+  const wrongActionClaim = await signDelegationClaim(
+    createDelegationClaim({
+      delegatorDid: ownerDid,
+      delegateDid: agentDid,
+      action: "read",
+      scope: "api-access",
+    }),
+    ownerPrivateKey,
+  )
+
+  const wrongActionResult = await callPaidApi({
+    privateKey: agentPrivateKey,
+    delegation: wrongActionClaim,
+    agentId,
+    serverUrl: `http://localhost:${SERVER_PORT}`,
+    skipPayment: true,
+  })
+  log(
+    wrongActionResult.success
+      ? `   ${colors.bold("Unexpected: access granted")}`
+      : `   ${colors.bold(`Rejected (${wrongActionResult.status})`)} — ${wrongActionResult.error}`,
+  )
+
+  // 6b: Wrong scope
+  log(colors.dim("\n   6b. Agent with wrong scope (database instead of api-access)..."))
+  const wrongScopeClaim = await signDelegationClaim(
+    createDelegationClaim({
+      delegatorDid: ownerDid,
+      delegateDid: agentDid,
+      action: "payment",
+      scope: "database",
+    }),
+    ownerPrivateKey,
+  )
+
+  const wrongScopeResult = await callPaidApi({
+    privateKey: agentPrivateKey,
+    delegation: wrongScopeClaim,
+    agentId,
+    serverUrl: `http://localhost:${SERVER_PORT}`,
+    skipPayment: true,
+  })
+  log(
+    wrongScopeResult.success
+      ? `   ${colors.bold("Unexpected: access granted")}`
+      : `   ${colors.bold(`Rejected (${wrongScopeResult.status})`)} — ${wrongScopeResult.error}`,
+  )
+
+  // 6c: Expired delegation
+  log(colors.dim("\n   6c. Agent with expired delegation..."))
+  const expiredClaim = await signDelegationClaim(
+    createDelegationClaim({
+      delegatorDid: ownerDid,
+      delegateDid: agentDid,
+      action: "payment",
+      scope: "api-access",
+      expiresInSeconds: -3600, // expired 1 hour ago
+    }),
+    ownerPrivateKey,
+  )
+
+  const expiredResult = await callPaidApi({
+    privateKey: agentPrivateKey,
+    delegation: expiredClaim,
+    agentId,
+    serverUrl: `http://localhost:${SERVER_PORT}`,
+    skipPayment: true,
+  })
+  log(
+    expiredResult.success
+      ? `   ${colors.bold("Unexpected: access granted")}`
+      : `   ${colors.bold(`Rejected (${expiredResult.status})`)} — ${expiredResult.error}`,
+  )
+
   // --- Done ---
   log(`
 ${colors.bold("━".repeat(50))}
 ${colors.bold("Demo complete.")}
 
-  Owner delegated ${colors.bold("payment/api-access")} to agent
-  Agent registered on ERC-8004 (ID: ${agentId})
-  Delegation root anchored on-chain
-  Agent paid for API access via MPP 402 flow
-  Server verified delegation chain against on-chain root
-  ${result.success ? colors.bold("Access granted") : "Access denied"}
+  ${colors.bold("Happy path:")} Owner delegated payment/api-access → agent paid → access granted
+  ${colors.bold("Wrong action:")} Rejected
+  ${colors.bold("Wrong scope:")} Rejected
+  ${colors.bold("Expired:")} Rejected
 `)
 
   process.exit(0)
